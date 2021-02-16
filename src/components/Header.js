@@ -15,7 +15,10 @@ import {
 	List,
 	ListItem,
 	ListItemText, 
-	Container, } from '@material-ui/core';
+	Container, 
+	Menu, } from '@material-ui/core';
+
+import SideDrawer from './SideDrawer';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -107,9 +110,10 @@ export default function Header() {
 								</a>
 							))}
 						</List>
-						<IconButton>
+						<SideDrawer navLinks={navLinks}/>
+						{/* <IconButton>
 							<SortIcon className={classes.icon} />
-						</IconButton>
+						</IconButton> */}
 					</Container>
 				</Toolbar>
 			</AppBar>
