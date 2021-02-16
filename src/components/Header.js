@@ -16,7 +16,8 @@ import {
 	ListItem,
 	ListItemText, 
 	Container, 
-	Menu, } from '@material-ui/core';
+	Menu, 
+	Hidden, } from '@material-ui/core';
 
 import SideDrawer from './SideDrawer';
 
@@ -101,16 +102,20 @@ export default function Header() {
 								Danniel<span className={classes.colorText}> Hansel</span>
 							</h1>
 						</Link>
-						<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
-							{navLinks.map(({ title, path }) => (
-								<a href={path} key={title} className={classes.linkText}>
-									<ListItem button>
-										<ListItemText primary={title} />
-									</ListItem>
-								</a>
-							))}
-						</List>
-						<SideDrawer navLinks={navLinks}/>
+						<Hidden smDown>
+							<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
+								{navLinks.map(({ title, path }) => (
+									<a href={path} key={title} className={classes.linkText}>
+										<ListItem button>
+											<ListItemText primary={title} />
+										</ListItem>
+									</a>
+								))}
+							</List>
+						</Hidden>
+						<Hidden mdUp>
+							<SideDrawer navLinks={navLinks}/>
+						</Hidden>
 						{/* <IconButton>
 							<SortIcon className={classes.icon} />
 						</IconButton> */}
