@@ -20,6 +20,7 @@ import {
 	Hidden, } from '@material-ui/core';
 
 import SideDrawer from './SideDrawer';
+import HideOnScroll from './HideOnScroll';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -94,6 +95,7 @@ export default function Header() {
 	]
 	return(
 		<div className={classes.root} id='header'>
+			<HideOnScroll>
 			<AppBar className={classes.appbar} elevation={0}>
 				<Toolbar className={classes.appbarWrapper}>
 					<Container className={classes.navbarDisplayFlex}>
@@ -122,6 +124,7 @@ export default function Header() {
 					</Container>
 				</Toolbar>
 			</AppBar>
+			</HideOnScroll>
 			<Collapse 
 				in={checked} 
 				{...(checked ? { timeout: 1000 } : {})}
