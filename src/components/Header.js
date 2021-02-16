@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, IconButton, Toolbar, Icon, Collapse } from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll'
+import { 
+	AppBar, 
+	IconButton, 
+	Toolbar, 
+	Icon, 
+	Collapse, 
+	Typography, 
+	Link, 
+	Button,
+	List,
+	ListItem,
+	ListItemText, 
+	Container, } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -15,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 	appbar: {
 		background: 'none',
-		
 	},
 	colorText: {
 		color: '#5ADD3D',
@@ -25,15 +36,37 @@ const useStyles = makeStyles((theme) => ({
 	},
 	appbarWrapper: {
 		width: '80%',
-		margin: '0 auto'
+		margin: '0 auto',
 	},
 	icon: {
 		color: '#fff',
-		fontSize: '2rem',
+		fontSize: '2.5rem',
 	},
 	title: {
 		color: '#fff',
 		fontSize: '4.5rem',
+	},
+	navBarTabs: {
+		color: '#fff',
+		fontSize: '1.5rem',
+		alignItems: "center",
+		display: "flex",
+		justifyContent: "center",
+	},
+	navDisplayFlex: {
+		display: "flex",
+		justifyContent: "space-between",
+	},
+	navbarDisplayFlex: {
+		display: 'flex',
+		justifyContent: 'space-between',
+	},
+	linkText: {
+		textDecoration: 'none',
+		textTransform: 'uppercase',
+		color: '#fff',
+		fontWeight: '400',
+		fontSize: '1rem',
 	},
 	container: {
 		textAlign: 'center',
@@ -49,16 +82,35 @@ export default function Header() {
 	useEffect(() => {
 		setChecked(true);
 	})
+	const navLinks = [
+		{ title: `Blog`, path: `/blog`},
+		{ title: `Project`, path: `/project`},
+		{ title: `About`, path: `/about`},
+		{ title: `Contact`, path: `/contact`},
+	]
 	return(
 		<div className={classes.root} id='header'>
 			<AppBar className={classes.appbar} elevation={0}>
 				<Toolbar className={classes.appbarWrapper}>
-					<h1 className={classes.appbarTitle}>
-						Hi<span className={classes.colorText}> there!</span>
-					</h1>
-					<IconButton>
-						<SortIcon className={classes.icon} />
-					</IconButton>
+					<Container className={classes.navbarDisplayFlex}>
+						<Link className={classes.appbarTitle} href="/">
+							<h1>
+								Danniel<span className={classes.colorText}> Hansel</span>
+							</h1>
+						</Link>
+						<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
+							{navLinks.map(({ title, path }) => (
+								<a href={path} key={title} className={classes.linkText}>
+									<ListItem button>
+										<ListItemText primary={title} />
+									</ListItem>
+								</a>
+							))}
+						</List>
+						<IconButton>
+							<SortIcon className={classes.icon} />
+						</IconButton>
+					</Container>
 				</Toolbar>
 			</AppBar>
 			<Collapse 
