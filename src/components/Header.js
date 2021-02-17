@@ -1,8 +1,3 @@
-import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import SortIcon from '@material-ui/icons/Sort';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Link as Scroll } from 'react-scroll'
 import { 
 	AppBar, 
 	IconButton, 
@@ -17,10 +12,17 @@ import {
 	ListItemText, 
 	Container, 
 	Menu, 
-	Hidden, } from '@material-ui/core';
+	Hidden, 
+	Fab } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Link as Scroll } from 'react-scroll'
+import { KeyboardArrowUp } from '@material-ui/icons';
 
 import SideDrawer from './SideDrawer';
 import HideOnScroll from './HideOnScroll';
+import BackToTop from './BackToTop';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -81,50 +83,58 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: '4.5rem',
 	}
 }));
-export default function Header() {
+const navLinks = [
+	{ title: `Blog`, path: `/blog`},
+	{ title: `Project`, path: `/project`},
+	{ title: `About`, path: `/about`},
+	{ title: `Contact`, path: `/contact`},
+]
+const Header = () => {
 	const classes = useStyles();
 	const [ checked, setChecked ] = useState(false);
 	useEffect(() => {
-		setChecked(true);
+		setChecked(true)
+		
 	})
-	const navLinks = [
-		{ title: `Blog`, path: `/blog`},
-		{ title: `Project`, path: `/project`},
-		{ title: `About`, path: `/about`},
-		{ title: `Contact`, path: `/contact`},
-	]
 	return(
 		<div className={classes.root} id='header'>
 			<HideOnScroll>
-			<AppBar className={classes.appbar} elevation={0}>
-				<Toolbar className={classes.appbarWrapper}>
-					<Container className={classes.navbarDisplayFlex}>
-						<Link className={classes.appbarTitle} href="/">
-							<h1>
-								Danniel<span className={classes.colorText}> Hansel</span>
-							</h1>
-						</Link>
-						<Hidden smDown>
-							<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
-								{navLinks.map(({ title, path }) => (
-									<a href={path} key={title} className={classes.linkText}>
-										<ListItem button>
-											<ListItemText primary={title} />
-										</ListItem>
-									</a>
-								))}
-							</List>
-						</Hidden>
-						<Hidden mdUp>
-							<SideDrawer navLinks={navLinks}/>
-						</Hidden>
-						{/* <IconButton>
-							<SortIcon className={classes.icon} />
-						</IconButton> */}
-					</Container>
-				</Toolbar>
-			</AppBar>
+				<AppBar className={classes.appbar} elevation={0} position="fixed">
+					<Toolbar className={classes.appbarWrapper}>
+						<Container className={classes.navbarDisplayFlex}>
+							<Link className={classes.appbarTitle} href="/">
+								<h1>
+									Danniel<span className={classes.colorText}> Hansel</span>
+								</h1>
+							</Link>
+							<Hidden smDown>
+								<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
+									{navLinks.map(({ title, path }) => (
+										<a href={path} key={title} className={classes.linkText}>
+											<ListItem button>
+												<ListItemText primary={title} />
+											</ListItem>
+										</a>
+									))}
+								</List>
+							</Hidden>
+							<Hidden mdUp>
+								<SideDrawer navLinks={navLinks}/>
+							</Hidden>
+							{/* <IconButton>
+								<SortIcon className={classes.icon} />
+							</IconButton> */}
+						</Container>
+					</Toolbar>
+				</AppBar>
 			</HideOnScroll>
+			<Toolbar id="back-to-top-anchor" />
+
+			<BackToTop>
+				<Fab color="secondary" size="large" aria-label="scroll back to top" >
+					<KeyboardArrowUp />
+				</Fab>
+			</BackToTop>
 			<Collapse 
 				in={checked} 
 				{...(checked ? { timeout: 1000 } : {})}
@@ -145,3 +155,4 @@ export default function Header() {
 		</div>
 	);
 }
+export default Header;
