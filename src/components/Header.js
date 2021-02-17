@@ -129,12 +129,11 @@ const Header = () => {
 				</AppBar>
 			</HideOnScroll>
 			<Toolbar id="back-to-top-anchor" />
-
 			<BackToTop>
 				<Fab color="secondary" size="large" aria-label="scroll back to top" >
 					<KeyboardArrowUp />
 				</Fab>
-			</BackToTop>
+			</BackToTop>			
 			<Collapse 
 				in={checked} 
 				{...(checked ? { timeout: 1000 } : {})}

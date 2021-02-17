@@ -13,7 +13,13 @@ const blogs = [
 		direction: 'right',
 		time: '1500',
 	},
-	
+	{
+		title: 'Third Blog Post',
+		description: 'This is my first blog post about myself!',
+		imageUrl: process.env.PUBLIC_URL + '/assets/island1.jpg',
+		direction: 'left',
+		time: '1500',
+	},
 ]
 
 export default blogs;

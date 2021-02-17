@@ -4,6 +4,7 @@ import { CssBaseline } from '@material-ui/core';
 
 import Header from './components/Header';
 import Post from './components/Post';
+import Project from './components/Project';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,7 @@ export default function App() {
       <CssBaseline />
       <Header />
       <Post />
+      <Project />
     </div>
   );
 }

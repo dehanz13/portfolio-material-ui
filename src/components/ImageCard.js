@@ -1,19 +1,16 @@
 import React from 'react';
-import { Collapse } from '@material-ui/core'
+import { Collapse, Icon, Grid, Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles({
+
+const useStyles = makeStyles((theme) => ({
   root: {
 		maxWidth: 645,
+		// minWidth: 'auto',
 		background: 'rgba(0,0,0,0.5)',
-		margin: '20px'
+		margin: '20px',
+		flexGrow: 1,
+		padding: theme.spacing(2)
   },
   media: {
     height: 440,
@@ -29,15 +26,17 @@ const useStyles = makeStyles({
 		fontSize: '1.1rem',
 		color: '#ddd',
 	},
-});
+	button: {
+		margin: theme.spacing(1),
+	},
+}));
 
-export default function ImageCard({blogPost, checked}) {
+export default function ImageCard({ blogPost, checked }) {
   const classes = useStyles();
-
   return (
 		<Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
 			<Card className={classes.root}>
-				{/* <CardActionArea> */}
+				<CardActionArea>
 					<CardMedia
 						className={classes.media}
 						image={blogPost.imageUrl}
@@ -61,15 +60,15 @@ export default function ImageCard({blogPost, checked}) {
 							{blogPost.description}
 						</Typography>
 					</CardContent>
-				{/* </CardActionArea> */}
-				{/* <CardActions>
-					<Button size="small" color="primary">
+				</CardActionArea>
+				<CardActions>
+					<Button variant="contained" color="secondary" className={classes.button} >
 						Share
 					</Button>
-					<Button size="small" color="primary">
-						Learn More
+					<Button variant="contained"  color="secondary" className={classes.button}>
+						Read More ...
 					</Button>
-				</CardActions> */}
+				</CardActions>
 			</Card>
 		</Collapse>
   );
