@@ -5,7 +5,7 @@ import {
 	Icon, 
 	Collapse, 
 	Typography, 
-	Link, 
+	Link,
 	Button,
 	List,
 	ListItem,
@@ -14,6 +14,9 @@ import {
 	Menu, 
 	Hidden, 
 	Fab } from '@material-ui/core';
+// import { Link as Links } from 'react-router-dom';
+import { Route, Link as Links} from 'react-router-dom'
+
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -23,6 +26,7 @@ import { KeyboardArrowUp } from '@material-ui/icons';
 import SideDrawer from './SideDrawer';
 import HideOnScroll from './HideOnScroll';
 import BackToTop from './BackToTop';
+import BlogPage from '../pages/BlogPage';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -31,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 		height: '100vh',
 		fontFamily: 'Nunito',
+		textDecoration: 'none',
 	},
 	appbar: {
 		background: 'none',
@@ -71,9 +76,16 @@ const useStyles = makeStyles((theme) => ({
 	linkText: {
 		textDecoration: 'none',
 		textTransform: 'uppercase',
-		color: '#fff',
-		fontWeight: '400',
-		fontSize: '1rem',
+		color: '#5ADD3D',
+		// fontWeight: 500,
+		// fontFamily: 'Nunito',
+		// fontSize: '2rem'
+	},
+	navButtons: {
+		color: '#5AFF3D',
+		fontWeight: 500,
+		fontFamily: 'Nunito',
+		fontSize: '1.5rem'
 	},
 	container: {
 		textAlign: 'center',
@@ -84,10 +96,10 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 const navLinks = [
-	{ title: `Blog`, path: `/blog`},
-	{ title: `Project`, path: `/project`},
-	{ title: `About`, path: `/about`},
-	{ title: `Contact`, path: `/contact`},
+	{ title: 'Blog', path: 'blog-posts'},
+	{ title: 'Project', path: 'projects'},
+	{ title: 'About', path: '/about'},
+	{ title: 'Contact', path: '/contact'},
 ]
 const Header = () => {
 	const classes = useStyles();
@@ -109,21 +121,36 @@ const Header = () => {
 							</Link>
 							<Hidden smDown>
 								<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
+									{/* <li><a className={classes.linkText} href="/BlogPage">BLOG</a></li>
+									<li><Links to='/blogs' >BLOGS</Links></li> */}
 									{navLinks.map(({ title, path }) => (
-										<a href={path} key={title} className={classes.linkText}>
-											<ListItem button>
-												<ListItemText primary={title} />
-											</ListItem>
-										</a>
+										// <li><a href={path} key={title} className={classes.linkText} >
+												<li><a href={path} key={title} className={classes.linkText} >
+													<Scroll to={path} smooth={true}>
+														<ListItem button >
+															<ListItemText primary={title}/>
+														</ListItem>
+													</Scroll>
+												</a></li>
 									))}
 								</List>
+								{/* <Route path='/blogs'><BlogPage /></Route> */}
+								{/* <Button  to='/blog' component={Links} className={classes.navButtons} value="blog">
+									Blogs
+								</Button>
+								<Button  href='/' component={Links} className={classes.navButtons}>
+									Projects
+								</Button>
+								<Button  href='/' component={Links} className={classes.navButtons}>
+									About
+								</Button>
+								<Button  href='/' component={Links} className={classes.navButtons}>
+									Contact
+								</Button> */}
 							</Hidden>
 							<Hidden mdUp>
 								<SideDrawer navLinks={navLinks}/>
 							</Hidden>
-							{/* <IconButton>
-								<SortIcon className={classes.icon} />
-							</IconButton> */}
 						</Container>
 					</Toolbar>
 				</AppBar>

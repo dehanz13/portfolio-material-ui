@@ -40,7 +40,7 @@ export default function Header() {
 					<Grid item xs={12} sm={6} md={4}>
 						<ImageCard blogPost={projects[1]} checked={checked}/>
 					</Grid>
-					<Grid item xs={12} sm={6} md={4}>
+					{/* <Grid item xs={12} sm={6} md={4}>
 						<ImageCard blogPost={projects[1]} checked={checked}/>
 					</Grid>
 					<Grid item xs={12} sm={6} md={4}>
@@ -48,7 +48,7 @@ export default function Header() {
 					</Grid>
 					<Grid item xs={12} sm={6} md={4}>
 						<ImageCard blogPost={projects[0]} checked={checked}/>
-					</Grid>
+					</Grid> */}
 				</Grid>
 			</Container>
 		</div>

@@ -4,14 +4,28 @@ import { IconButton, List, ListItem, ListItemText, Drawer, } from "@material-ui/
 import { Menu } from "@material-ui/icons";
 import { makeStyles } from '@material-ui/core/styles';
 
+
+
 const useStyles = makeStyles({
 	list:{
 		width: 250
 	},
-	LinkText: {
-		textDecoration: `none`,
-		textTransform: `uppercase`,
-		color: `black`,
+	linkText: {
+		textDecoration: "none",
+		color: "#5ADD3D",
+		fontFamily: 'sans-serif',
+		// justifyContent: 'center',
+		// alignItems: "center",
+		// fontSize: '1.5rem',
+		// fontWeight: 'bold',
+	},
+	sideDrawerFlex: {
+		// justifyContent: 'center',
+		// alignItems: "center",
+		// color: '#fff',
+		// fontSize: '1.5rem',
+		display: 'grid',
+		justifyContent: 'space-between',
 	},
 });
 const SideDrawer = ({ navLinks }) => {
@@ -35,10 +49,10 @@ const SideDrawer = ({ navLinks }) => {
 			onClick={toggleDrawer(anchor, false)}
 			onKeyDown={toggleDrawer(anchor, false)}
 			>
-			<List component="nav">
+			<List component="nav" className={classes.sideDrawerFlex}>
 				{navLinks.map(({ title, path }) => (
-					<a href={path} key={title} className={classes.linkText}>
-						<ListItem button>
+					<a href={path} key={title} className={classes.linkText} >
+						<ListItem button >
 							<ListItemText primary={title} />
 						</ListItem>
 					</a>
