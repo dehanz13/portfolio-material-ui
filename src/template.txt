@@ -155,8 +155,6 @@ export default function App() {
 							</Link>
 							<Hidden smDown>
 								<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
-									{/* <li><a className={classes.linkText} href="/BlogPage">BLOG</a></li>
-									<li><Links to='/blogs' >BLOGS</Links></li> */}
 									{navLinks.map(({ title, path }) => (
 										// <li><a href={path} key={title} className={classes.linkText} >
 												<li><a href={path} key={title} className={classes.linkText} >
@@ -168,19 +166,6 @@ export default function App() {
 												</a></li>
 									))}
 								</List>
-								{/* <Route path='/blogs'><BlogPage /></Route> */}
-								{/* <Button  to='/blog' component={Links} className={classes.navButtons} value="blog">
-									Blogs
-								</Button>
-								<Button  href='/' component={Links} className={classes.navButtons}>
-									Projects
-								</Button>
-								<Button  href='/' component={Links} className={classes.navButtons}>
-									About
-								</Button>
-								<Button  href='/' component={Links} className={classes.navButtons}>
-									Contact
-								</Button> */}
 							</Hidden>
 							<Hidden mdUp>
 								<SideDrawer navLinks={navLinks}/>

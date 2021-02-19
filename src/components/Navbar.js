@@ -15,6 +15,8 @@ import {
 	Divider,
 	Typography,
 	makeStyles,
+	Hidden,
+	Link as Links,
 } from '@material-ui/core';
 import { 
 	ArrowBack,
@@ -22,22 +24,25 @@ import {
 	Home,
 	Apps,
 	ContactMail,
-	ExpandMoreIcon,
 	Menu,
 } from '@material-ui/icons';
 
 import avatar from '../images/avatar.png';
 import Footer from './Footer';
 import SideDrawer from './SideDrawer';
+import HideOnScroll from './HideOnScroll';
+import BackToTop from './BackToTop';
 
 const useStyles = makeStyles((theme) => ({
 	appbar: {
 		// background: '#222',
 		// margin: 0,
 		background: 'none',
+		fontFamily: 'Nunito',
 	},
 	appbarTitle: {
 		flexGrow: '1',
+		// display: 'flex',
 		textDecoration: 'none'
 	},
 	appbarWrapper: {
@@ -84,6 +89,13 @@ const menuItems = [
 	{ listIcon: <ContactMail />, listText: "Contact", listPath: '/contact'},
 ];
 
+const navbarItems = [
+	{ listText: "About", listPath: '/about'},
+	{ listText: "Blog", listPath: '/blog'},
+	{ listText: "Project", listPath: '/project'},
+	{ listText: "Contact", listPath: '/contact'},
+]
+
 const Navbar = () => {
 	const [ open, setOpen ] = useState(false);
 	const [ state, setState ] = useState({ right: false })
@@ -94,7 +106,7 @@ const Navbar = () => {
 
 	const toggleDrawer = (anchor, open) => event => {
 		if (
-			event.type === 'keydown' &&
+			event.type === 'Keydown' &&
 			(event.type === 'Tab' || event.key === 'Shift')
 		) {
 			return
@@ -133,72 +145,60 @@ const Navbar = () => {
 			onClick={toggleDrawer(anchor, false)}
 			onKeyDown={toggleDrawer(anchor, false)}
 		>
-			<Box className={classes.menuSliderContainer} component="div">
-				<Avatar className={classes.avatar} src={avatar} alt="Danniel Hansel" />
-				<Divider />
-				<List>
-					{menuItems.map((item, i) => (
-						<ListItem
-							button
-							key={i}
-							className={classes.listItem}
-							onClick={() => setOpen(false)}
-							component={Link}
-							to={item.listPath}
-						>
-							<ListItemIcon className={classes.listItem}>
-								{item.listIcon}
-							</ListItemIcon>
-							<ListItemText primary = {item.listText} />
-						</ListItem>
-					))}
-				</List>
-			</Box>
+			{sideList()}
 		</div>
 	)
 
 	return(
 		<React.Fragment>
-			<Box component='nav'>
-				<AppBar position='fixed' className={classes.appbar} elevation={0}>
-					<Toolbar className={classes.appbarWrapper}>
-						<Container className={classes.navbarDisplayFlex}>
-							<Link className={classes.appbarTitle} href="/">
-								<h1>
-									Danniel<span className={classes.colorText}> Hansel</span>
-								</h1>
-							</Link>
-							{/* <IconButton onClick={() => setOpen(true)}>
-								<ArrowBack className={classes.arrow} />
-							</IconButton> */}
-							{/* <Typography variant="h5" className={classes.title}>
-								Danniel Hansel
-							</Typography> */}
-							<IconButton
-								edge='start'
-								aria-label='menu'
-								onClick={toggleDrawer('right', true)}
-							>
-								<Menu fontSize='large' style={{ color: 'white' }}/>
-							</IconButton>
-							<Drawer 
-								// open={open} 
-								// anchor="right" 
-								// onClose={() => setOpen(false)}>
-								anchor='right'
-								open={state.right}
-								onOpen={toggleDrawer('right', true)}
-								onClose={toggleDrawer('right', false)}
-							>
-									{sideDrawerList("right")}
-									<Footer />
-							</Drawer>
-						</Container>
-					</Toolbar>
-				</AppBar>
-			</Box>
-			{/* <SideDrawer navLinks={menuItems}/> */}
-			
+			<HideOnScroll>
+				{/* <Box component='nav'> */}
+					<AppBar position='fixed' className={classes.appbar} elevation={0}>
+						<Toolbar className={classes.appbarWrapper}>
+							<Container className={classes.navDisplayFlex}>
+								<Links className={classes.appbarTitle} href="/">
+									<h1>
+										Danniel<span className={classes.colorText}> Hansel</span>
+									</h1>
+								</Links>
+								<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
+									{navbarItems.map((item, i) => (
+										<ListItem
+											button
+											key={i}
+											className={classes.colorText}
+											component={Link}
+											to={item.listPath}
+										>
+											<ListItemText primary = {item.listText} />
+										</ListItem>
+									))}
+								</List>
+								{/* <Hidden mdUp> */}
+									<IconButton
+										edge='start'
+										aria-label='menu'
+										onClick={toggleDrawer('right', true)}
+									>
+										<Menu fontSize='large' style={{ color: 'white' }}/>
+									</IconButton>
+								{/* </Hidden> */}
+								{/* <Hidden smDown> */}
+									<Drawer
+										anchor='right'
+										open={state.right}
+										onOpen={toggleDrawer('right', true)}
+										onClose={toggleDrawer('right', false)}
+									>
+											{sideDrawerList("right")}
+											<Footer />
+									</Drawer>
+								{/* </Hidden> */}
+							</Container>
+						</Toolbar>
+					</AppBar>
+				{/* </Box> */}
+			</HideOnScroll>
 		</React.Fragment>
 	)
 };

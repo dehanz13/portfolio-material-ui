@@ -26,14 +26,14 @@ function App() {
   return(
     <React.Fragment>
       <div className={classes.root}>
-      <CssBaseline />
-      <Navbar />
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/about' component={About} />
-        <Route exact path='/blogs' component={Post} />
-        <Route exact path='/projects' component={Project} />
-      </Switch>
+        <CssBaseline />
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/blogs' component={Post} />
+          <Route exact path='/projects' component={Project} />
+        </Switch>
       </div>
     </React.Fragment>
   );
