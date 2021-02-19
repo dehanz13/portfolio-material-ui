@@ -3,10 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import { Link, Route, Switch } from 'react-router-dom'
 
+import Home from './components';
 import Header from './components/Header';
+import About from './components/About';
 import Post from './components/Post';
 import Project from './components/Project';
-import BlogPage from './pages/BlogPage';
+import Contact from './components/Contact';
+import Navbar from './components/Navbar';
 
 import './index.css';
 
@@ -18,37 +21,26 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
   }
 }));
-export default function App() {
+function App() {
   const classes = useStyles();
   return(
-    // <Router>
-    <div className={classes.root}>
+    <React.Fragment>
+      <div className={classes.root}>
       <CssBaseline />
-      <Header />
-      {/* <nav>
-        <li>
-          <Link to='/blogs'>BLOGSS</Link>
-        </li>
-      </nav>
+      <Navbar />
       <Switch>
-        <Route exact path='/'></Route>
-        <Route path='/blogs'><BlogPage /></Route>
-      </Switch> */}
-      
-        {/* <Switch> */}
-          {/* <Route path='/' exact/> */}
-          {/* <Route path='/blogs'>
-            <BlogPage />
-          </Route> */}
-          {/* <Route path='/blogs' component={BlogPage}/> */}
-        {/* </Switch> */}
-
-      <Post />
-      <Project />
-    </div>
-    // </Router>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/about' component={About} />
+        <Route exact path='/blogs' component={Post} />
+        <Route exact path='/projects' component={Project} />
+      </Switch>
+      </div>
+    </React.Fragment>
   );
 }
+export default App;
+
+// This is my original App.js (Below)
 // export default function App() {
 //   const classes = useStyles();
 //   return(

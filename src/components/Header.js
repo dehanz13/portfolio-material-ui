@@ -77,9 +77,6 @@ const useStyles = makeStyles((theme) => ({
 		textDecoration: 'none',
 		textTransform: 'uppercase',
 		color: '#5ADD3D',
-		// fontWeight: 500,
-		// fontFamily: 'Nunito',
-		// fontSize: '2rem'
 	},
 	navButtons: {
 		color: '#5AFF3D',
@@ -106,55 +103,9 @@ const Header = () => {
 	const [ checked, setChecked ] = useState(false);
 	useEffect(() => {
 		setChecked(true)
-		
 	})
 	return(
 		<div className={classes.root} id='header'>
-			<HideOnScroll>
-				<AppBar className={classes.appbar} elevation={0} position="fixed">
-					<Toolbar className={classes.appbarWrapper}>
-						<Container className={classes.navbarDisplayFlex}>
-							<Link className={classes.appbarTitle} href="/">
-								<h1>
-									Danniel<span className={classes.colorText}> Hansel</span>
-								</h1>
-							</Link>
-							<Hidden smDown>
-								<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
-									{/* <li><a className={classes.linkText} href="/BlogPage">BLOG</a></li>
-									<li><Links to='/blogs' >BLOGS</Links></li> */}
-									{navLinks.map(({ title, path }) => (
-										// <li><a href={path} key={title} className={classes.linkText} >
-												<li><a href={path} key={title} className={classes.linkText} >
-													<Scroll to={path} smooth={true}>
-														<ListItem button >
-															<ListItemText primary={title}/>
-														</ListItem>
-													</Scroll>
-												</a></li>
-									))}
-								</List>
-								{/* <Route path='/blogs'><BlogPage /></Route> */}
-								{/* <Button  to='/blog' component={Links} className={classes.navButtons} value="blog">
-									Blogs
-								</Button>
-								<Button  href='/' component={Links} className={classes.navButtons}>
-									Projects
-								</Button>
-								<Button  href='/' component={Links} className={classes.navButtons}>
-									About
-								</Button>
-								<Button  href='/' component={Links} className={classes.navButtons}>
-									Contact
-								</Button> */}
-							</Hidden>
-							<Hidden mdUp>
-								<SideDrawer navLinks={navLinks}/>
-							</Hidden>
-						</Container>
-					</Toolbar>
-				</AppBar>
-			</HideOnScroll>
 			<Toolbar id="back-to-top-anchor" />
 			<BackToTop>
 				<Fab color="secondary" size="large" aria-label="scroll back to top" >

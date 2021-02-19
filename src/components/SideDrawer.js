@@ -1,12 +1,16 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { IconButton, List, ListItem, ListItemText, Drawer, } from "@material-ui/core";
+import { 
+	IconButton, 
+	List, 
+	ListItem, 
+	ListItemText,
+	Drawer,
+} from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import { makeStyles } from '@material-ui/core/styles';
 
-
-
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
 	list:{
 		width: 250
 	},
@@ -14,20 +18,26 @@ const useStyles = makeStyles({
 		textDecoration: "none",
 		color: "#5ADD3D",
 		fontFamily: 'sans-serif',
-		// justifyContent: 'center',
-		// alignItems: "center",
-		// fontSize: '1.5rem',
-		// fontWeight: 'bold',
 	},
 	sideDrawerFlex: {
-		// justifyContent: 'center',
-		// alignItems: "center",
-		// color: '#fff',
-		// fontSize: '1.5rem',
 		display: 'grid',
 		justifyContent: 'space-between',
 	},
-});
+	menuSliderContainer: {
+    width: 250,
+    background: "#511",
+    height: "100%",
+  },
+  avatar: {
+    display: "block",
+    margin: "0.5rem auto",
+    width: theme.spacing(13),
+    height: theme.spacing(13),
+  },
+  listItem: {
+    color: "tan",
+  },
+}));
 const SideDrawer = ({ navLinks }) => {
 	const classes = useStyles();
 	const [ state, setState ] = useState({ right: false });
@@ -59,7 +69,7 @@ const SideDrawer = ({ navLinks }) => {
 				))}
 			</List>
 		</div>
-	)
+	);
 	return(
 		<React.Fragment>
 			<IconButton 

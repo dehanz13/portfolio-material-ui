@@ -1,3 +1,4 @@
+=====Default Template=====
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -12,7 +13,7 @@ export default function Header() {
 		</div>
 	);
 }
-
+=====Image Card=====
 import React from 'react';
 import { Collapse, Icon, Grid, Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
@@ -107,4 +108,225 @@ export default function ImageCard({ blogPost, checked }) {
 			</Card>
 		</Collapse>
   );
+}
+
+=====App.js - Trial & Error from Navigation=====
+export default function App() {
+  const classes = useStyles();
+  return(
+    // <Router>
+    <div className={classes.root}>
+      <CssBaseline />
+      <Header />
+      {/* <nav>
+        <li>
+          <Link to='/blogs'>BLOGSS</Link>
+        </li>
+      </nav>
+      <Switch>
+        <Route exact path='/'></Route>
+        <Route path='/blogs'><BlogPage /></Route>
+      </Switch> */}
+      
+        {/* <Switch> */}
+          {/* <Route path='/' exact/> */}
+          {/* <Route path='/blogs'>
+            <BlogPage />
+          </Route> */}
+          {/* <Route path='/blogs' component={BlogPage}/> */}
+        {/* </Switch> */}
+
+      <Post />
+      <Project />
+    </div>
+    // </Router>
+  );
+}
+
+===== Original Navbar from Header.js =====
+<HideOnScroll>
+				<AppBar className={classes.appbar} elevation={0} position="fixed">
+					<Toolbar className={classes.appbarWrapper}>
+						<Container className={classes.navbarDisplayFlex}>
+							<Link className={classes.appbarTitle} href="/">
+								<h1>
+									Danniel<span className={classes.colorText}> Hansel</span>
+								</h1>
+							</Link>
+							<Hidden smDown>
+								<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
+									{/* <li><a className={classes.linkText} href="/BlogPage">BLOG</a></li>
+									<li><Links to='/blogs' >BLOGS</Links></li> */}
+									{navLinks.map(({ title, path }) => (
+										// <li><a href={path} key={title} className={classes.linkText} >
+												<li><a href={path} key={title} className={classes.linkText} >
+													<Scroll to={path} smooth={true}>
+														<ListItem button >
+															<ListItemText primary={title}/>
+														</ListItem>
+													</Scroll>
+												</a></li>
+									))}
+								</List>
+								{/* <Route path='/blogs'><BlogPage /></Route> */}
+								{/* <Button  to='/blog' component={Links} className={classes.navButtons} value="blog">
+									Blogs
+								</Button>
+								<Button  href='/' component={Links} className={classes.navButtons}>
+									Projects
+								</Button>
+								<Button  href='/' component={Links} className={classes.navButtons}>
+									About
+								</Button>
+								<Button  href='/' component={Links} className={classes.navButtons}>
+									Contact
+								</Button> */}
+							</Hidden>
+							<Hidden mdUp>
+								<SideDrawer navLinks={navLinks}/>
+							</Hidden>
+						</Container>
+					</Toolbar>
+				</AppBar>
+			</HideOnScroll>
+
+===== Second Navbar =====
+const Navbar = () => {
+	const [ open, setOpen ] = useState(false);
+	const classes = useStyles();
+
+	const sideList = () => (
+		<Box className={classes.menuSliderContainer} component="div">
+			<Avatar className={classes.avatar} src={avatar} alt="Danniel Hansel" />
+			<Divider />
+			<List>
+				{menuItems.map((item, i) => (
+					<ListItem
+						button
+						key={i}
+						className={classes.listItem}
+						onClick={() => setOpen(false)}
+						component={Link}
+						to={item.listPath}
+					>
+						<ListItemIcon className={classes.listItem}>
+							{item.listIcon}
+						</ListItemIcon>
+						<ListItemText primary = {item.listText} />
+					</ListItem>
+				))}
+			</List>
+		</Box>
+	);
+
+	return(
+		<React.Fragment>
+			<Box component='nav'>
+				<AppBar position='static' className={classes.appbar}>
+					<Toolbar>
+						<IconButton onClick={() => setOpen(true)}>
+							<ArrowBack className={classes.arrow} />
+						</IconButton>
+						<Typography variant="h5" className={classes.title}>
+							Danniel Hansel
+						</Typography>
+					</Toolbar>
+				</AppBar>
+			</Box>
+			<Drawer open={open} anchor="right" onClose={() => setOpen(false)}>
+				{sideList()}
+				<Footer />
+			</Drawer>
+		</React.Fragment>
+	)
+};
+
+===== Original SideDrawer =====
+const SideDrawer = ({ navLinks }) => {
+	const classes = useStyles();
+	const [ state, setState ] = useState({ right: false });
+
+	const toggleDrawer = (anchor, open) => event => {
+		if (
+			event.type === "keydown" &&
+			(event.type === "Tab" || event.key === "Shift")
+		) {
+			return
+		}
+		setState({ [anchor]: open}) //This anchor is MUI props to decide the drawer slide in from top, left, right, or bottom.
+	}
+
+	const sideDrawerList = anchor => (
+		<div
+			className={classes.list}
+			role="presentation"
+			onClick={toggleDrawer(anchor, false)}
+			onKeyDown={toggleDrawer(anchor, false)}
+			>
+			<List component="nav" className={classes.sideDrawerFlex}>
+				{navLinks.map(({ title, path }) => (
+					<a href={path} key={title} className={classes.linkText} >
+						<ListItem button >
+							<ListItemText primary={title} />
+						</ListItem>
+					</a>
+				))}
+			</List>
+		</div>
+	)
+	return(
+		<React.Fragment>
+			<IconButton 
+				edge="start" 
+				aria-label="menu"
+				onClick={toggleDrawer("right", true)}
+				>
+				<Menu fontSize="large" style={{ color: `white` }}/>
+			</IconButton>
+			<Drawer
+				anchor="right"
+				open={state.right}
+				onOpen={toggleDrawer("right", true)}
+				onClose={toggleDrawer("right", false)}
+			>
+				{sideDrawerList("right")}
+			</Drawer>
+		</React.Fragment>
+	)
+}
+
+===== Original Header.js ======
+const Header = () => {
+	const classes = useStyles();
+	const [ checked, setChecked ] = useState(false);
+	useEffect(() => {
+		setChecked(true)
+	})
+	return(
+		<div className={classes.root} id='header'>
+			<Toolbar id="back-to-top-anchor" />
+			<BackToTop>
+				<Fab color="secondary" size="large" aria-label="scroll back to top" >
+					<KeyboardArrowUp />
+				</Fab>
+			</BackToTop>			
+			<Collapse 
+				in={checked} 
+				{...(checked ? { timeout: 1000 } : {})}
+				collapsedHeight={50}
+				>
+				<div className={classes.container}>
+					<h1 className={classes.title}>
+						Welcome to <br /> My
+						<span className={classes.colorText}>Website!</span>
+					</h1>
+					<Scroll to='blog-posts' smooth={true}>
+						<IconButton>
+							<ExpandMoreIcon className={classes.goDown}/>
+						</IconButton>
+					</Scroll>
+				</div>
+			</Collapse>
+		</div>
+	);
 }
