@@ -161,20 +161,22 @@ const Navbar = () => {
 										Danniel<span className={classes.colorText}> Hansel</span>
 									</h1>
 								</Link>
-								<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
-									{navbarItems.map((item, i) => (
-										<ListItem
-											button
-											key={i}
-											className={classes.colorText}
-											component={Link}
-											to={item.listPath}
-										>
-											<ListItemText primary = {item.listText} />
-										</ListItem>
-									))}
-								</List>
-								{/* <Hidden mdUp> */}
+								<Hidden smDown>
+									<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
+										{navbarItems.map((item, i) => (
+											<ListItem
+												button
+												key={i}
+												className={classes.colorText}
+												component={Link}
+												to={item.listPath}
+											>
+												<ListItemText primary = {item.listText} />
+											</ListItem>
+										))}
+									</List>
+								</Hidden>
+								<Hidden mdUp>
 									<IconButton
 										edge='start'
 										aria-label='menu'
@@ -182,8 +184,8 @@ const Navbar = () => {
 									>
 										<Menu fontSize='large' style={{ color: 'white' }}/>
 									</IconButton>
-								{/* </Hidden> */}
-								{/* <Hidden smDown> */}
+								</Hidden>
+								{/* <Hidden mdUp> */}
 									<Drawer
 										anchor='right'
 										open={state.right}

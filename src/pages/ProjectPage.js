@@ -75,15 +75,24 @@ const useStyles = makeStyles((theme) => ({
     margin: "3rem auto",
 	},
 	root: {
-		maxWidth: 645,
+		maxWidth: 600,
 		// minWidth: 'auto',
 		background: 'rgba(0,0,0,0.5)',
-		margin: '20px',
+		// margin: '20px',
+		margin: '3rem auto',
 		flexGrow: 1,
-		padding: theme.spacing(2)
+		padding: theme.spacing(2),
+		[theme.breakpoints.down('md')]:{
+			flexDirection: 'column',
+			maxWidth: 300,
+		}
+		
   },
   media: {
-    height: 300,
+		height: 300,
+		[theme.breakpoints.down('md')]:{
+			height: 200,
+		}
 	},
 	title: {
 		fontFamily: 'Nunito',
