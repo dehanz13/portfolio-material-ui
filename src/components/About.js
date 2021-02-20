@@ -18,26 +18,35 @@ const useStyles = makeStyles((theme) => ({
 			flexDirection: 'column',
 		},
 		// width: '80%'
-	},
+  },
+  secondContainer: {
+    padding: 8,
+  },
 	mainContainer: {
-		background: "#233",
+    // background: "#233",
+    // marginTop: ,
 		// background: "none",
 		// minHeight: '30%',
 		// maxWidth: 1500,
 		// width: 1,
-		zIndex: 15,
-		// width: theme.spacing(100),
-		margin: theme.spacing(2), 
-		top: 0,
-		maxWidth: '75vw'
+		// zIndex: 15,
+		width: theme.spacing(100),
+		margin: theme.spacing(0), 
+    // top: "45%",
+    // left: "50%",
+    // transform: "translate(-50%, -50%)",
+    // position: "absolute",
+		maxWidth: '50vw',
   },
 	heading: {
 		color: 'tomato',
 		padding: '3rem 0',
-		textTransform: 'uppercase',
+    textTransform: 'uppercase',
+    fontFamily: 'Nunito',
 	},
 	subtitle1: {
-		color: 'tan',
+    color: 'tan',
+    fontFamily: 'Nunito',
 	},
 	subHeading: {
     color: "#fff",
@@ -142,7 +151,7 @@ const About = () => {
 						About me...
 					</Typography>
 					<Box component='div' >
-						<Typography variant='h4' align='center'>
+						<Typography variant='h4' align='center' className={classes.subtitle1}>
 							My name is Danniel Hansel and I am a Frontend Developer based in Dallas, Texas.
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quas
 							ipsa, laudantium totam perferendis possimus voluptatibus tenetur.
@@ -156,6 +165,7 @@ const About = () => {
 							ipsa, laudantium totam perferendis possimus voluptatibus tenetur.
 							Quasi voluptatibus, nam vitae eaque ad, officia laboriosam
 							repudiandae, rerum necessitatibus nisi mollitia.
+              
 						</Typography>
 					</Box>
 				</Box>

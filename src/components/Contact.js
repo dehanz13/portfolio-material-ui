@@ -11,7 +11,9 @@ import Send from '@material-ui/icons/Send';
 
 const useStyles = makeStyles((theme) => ({
 	contactContainer: {
-    // background: "#233",
+		// background: "#233",
+		// backgroundColor: "#6772e5",
+		boxShadow: '0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)',
 		height: "100vh",
   },
   heading: {
@@ -22,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "1rem",
   },
   form: {
-		background: "#233",
+		// background: "#233",
+		boxShadow: '0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)',
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
@@ -37,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     color: "tomato",
 		borderColor: "tan",
 		fontFamily: 'Nunito',
+		fontSize: 25,
   },
   field: {
 		// fontFamily: 'Nunito',
@@ -73,7 +77,7 @@ const Contact = () => {
 			<Grid container justify='center'>
 				<Box component='form' className={classes.form}>
 					<Typography variant='h2' className={classes.heading}>
-						Hire or Contact me...
+						Contact Me
 					</Typography>
 					<InputField 
 						fullWidth={true}
