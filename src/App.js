@@ -30,7 +30,6 @@ function App() {
     <React.Fragment>
       <CssBaseline />
       <div className={classes.root}>
-        
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />

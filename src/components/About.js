@@ -18,9 +18,7 @@ const useStyles = makeStyles((theme) => ({
 			flexDirection: 'column',
 		},
 		// width: '80%'
-		
 	},
-	
 	mainContainer: {
 		background: "#233",
 		// background: "none",
