@@ -16,7 +16,6 @@ import {
 	Typography,
 	makeStyles,
 	Hidden,
-	Link as Links,
 } from '@material-ui/core';
 import { 
 	ArrowBack,
@@ -36,14 +35,14 @@ import BackToTop from './BackToTop';
 const useStyles = makeStyles((theme) => ({
 	appbar: {
 		// background: '#222',
-		// margin: 0,
+		margin: 0,
 		background: 'none',
 		fontFamily: 'Nunito',
 	},
 	appbarTitle: {
 		flexGrow: '1',
 		// display: 'flex',
-		textDecoration: 'none'
+		textDecoration: 'none',
 	},
 	appbarWrapper: {
 		width: '80%',
@@ -63,9 +62,10 @@ const useStyles = makeStyles((theme) => ({
     color: "tan",
   },
   menuSliderContainer: {
-    width: 250,
+		width: theme.spacing(40),
+		height: theme.spacing(138),
     background: "#511",
-    height: "100%",
+    
   },
   avatar: {
     display: "block",
@@ -84,15 +84,15 @@ const useStyles = makeStyles((theme) => ({
 const menuItems = [
 	{ listIcon: <Home />, listText: "Home", listPath: '/'},
 	{ listIcon: <AssignmentInd />, listText: "About", listPath: '/about'},
-	{ listIcon: <Apps />, listText: "Blog", listPath: '/blog'},
-	{ listIcon: <Apps />, listText: "Project", listPath: '/project'},
+	{ listIcon: <Apps />, listText: "Blog", listPath: '/blogs'},
+	{ listIcon: <Apps />, listText: "Project", listPath: '/projects'},
 	{ listIcon: <ContactMail />, listText: "Contact", listPath: '/contact'},
 ];
 
 const navbarItems = [
 	{ listText: "About", listPath: '/about'},
-	{ listText: "Blog", listPath: '/blog'},
-	{ listText: "Project", listPath: '/project'},
+	{ listText: "Blog", listPath: '/blogs'},
+	{ listText: "Project", listPath: '/projects'},
 	{ listText: "Contact", listPath: '/contact'},
 ]
 
@@ -153,14 +153,14 @@ const Navbar = () => {
 		<React.Fragment>
 			<HideOnScroll>
 				{/* <Box component='nav'> */}
-					<AppBar position='fixed' className={classes.appbar} elevation={0}>
+					<AppBar position='fixed sticky' className={classes.appbar} elevation={0}>
 						<Toolbar className={classes.appbarWrapper}>
 							<Container className={classes.navDisplayFlex}>
-								<Links className={classes.appbarTitle} href="/">
+								<Link className={classes.appbarTitle} to="/" >
 									<h1>
 										Danniel<span className={classes.colorText}> Hansel</span>
 									</h1>
-								</Links>
+								</Link>
 								<List component="nav" aria-labelledby="main navigation" className={classes.navDisplayFlex}>
 									{navbarItems.map((item, i) => (
 										<ListItem

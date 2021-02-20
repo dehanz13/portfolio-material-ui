@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 		paddingBottom: theme.spacing(3)
 	},
 }));
-export default function Header() {
+const Post = () => {
 	const classes = useStyles();
 	const checked = useWindowPosition('header');
 
@@ -57,3 +57,4 @@ export default function Header() {
 		</div>
 	);
 }
+export default Post;

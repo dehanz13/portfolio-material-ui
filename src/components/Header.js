@@ -13,20 +13,20 @@ import {
 	Container, 
 	Menu, 
 	Hidden, 
-	Fab } from '@material-ui/core';
-// import { Link as Links } from 'react-router-dom';
-import { Route, Link as Links} from 'react-router-dom'
-
+	Fab,
+	Box,
+	Grid,
+	Avatar,
+} from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll'
 import { KeyboardArrowUp } from '@material-ui/icons';
+import Typed from 'react-typed';
 
-import SideDrawer from './SideDrawer';
-import HideOnScroll from './HideOnScroll';
 import BackToTop from './BackToTop';
-import BlogPage from '../pages/BlogPage';
+import avatar from '../images/avatar.png';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	appbarTitle: {
 		flexGrow: '1',
+		textDecoration: 'none',
 	},
 	appbarWrapper: {
 		width: '80%',
@@ -88,16 +89,33 @@ const useStyles = makeStyles((theme) => ({
 		textAlign: 'center',
 	},
 	goDown: {
-		color: '#5AFF3D',
+		// color: '#5AFF3D',
+		color: 'tomato',
 		fontSize: '4.5rem',
-	}
+	},
+	avatar: {
+		width: theme.spacing(15),
+		height: theme.spacing(15),
+		margin: theme.spacing(1),
+	},
+	headerTitle: {
+    color: "tomato",
+  },
+  subtitle: {
+    color: "tan",
+    textTransform: "uppercase",
+  },
+  typedContainer: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
+    width: "100vw",
+    textAlign: "center",
+    zIndex: 1,
+  },
 }));
-const navLinks = [
-	{ title: 'Blog', path: 'blog-posts'},
-	{ title: 'Project', path: 'projects'},
-	{ title: 'About', path: '/about'},
-	{ title: 'Contact', path: '/contact'},
-]
+
 const Header = () => {
 	const classes = useStyles();
 	const [ checked, setChecked ] = useState(false);
@@ -116,18 +134,38 @@ const Header = () => {
 				in={checked} 
 				{...(checked ? { timeout: 1000 } : {})}
 				collapsedHeight={50}
-				>
-				<div className={classes.container}>
-					<h1 className={classes.title}>
-						Welcome to <br /> My
-						<span className={classes.colorText}>Website!</span>
-					</h1>
+			>
+				<Box className={classes.typedContainer}>
+					<Grid container justify="center">
+						<Avatar className={classes.avatar} src={avatar} alt="Danniel Hansel" />
+					</Grid>
+					<Typography className={classes.headerTitle} variant="h4">
+						<Typed strings={["Danniel Hansel"]} typeSpeed={40} />
+					</Typography>
+					<Typography classesName={classes.subtitle} variant="h5">
+						<Typed 
+							strings={[
+								"FRONTEND DEVELOPER",
+								"NATIVE APP DEVELOPER",
+								"DESIGNER",
+								"TRAVELER",
+							]} 
+							typeSpeed={40}
+							backSpeed={50}
+							loop />
+					</Typography>
 					<Scroll to='blog-posts' smooth={true}>
 						<IconButton>
 							<ExpandMoreIcon className={classes.goDown}/>
 						</IconButton>
 					</Scroll>
-				</div>
+				</Box>
+				{/* <div className={classes.container}>
+					<h1 className={classes.title}>
+						Welcome to <br /> My
+						<span className={classes.colorText}>Website!</span>
+					</h1>
+				</div> */}
 			</Collapse>
 		</div>
 	);

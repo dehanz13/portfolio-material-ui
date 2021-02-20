@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const BlogPage = () => {
 
-		// const classes = useStyles();
+		const classes = useStyles();
 		return(
 			// <section id="BlogPage">
 			// 	<Post />

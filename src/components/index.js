@@ -7,7 +7,8 @@ const Home = () => {
 	return(
 		<React.Fragment>
 			<Header />
-			
+			<Post />
+			<Project />
 		</React.Fragment>
 	);
 };

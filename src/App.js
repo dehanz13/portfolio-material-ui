@@ -10,12 +10,15 @@ import Post from './components/Post';
 import Project from './components/Project';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
+import BlogPage from './pages/BlogPage';
+import ProjectPage from './pages/ProjectPage';
 
 import './index.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
+    // maxWidth: '100vw',
     backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/bg.jpg'})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
@@ -25,14 +28,16 @@ function App() {
   const classes = useStyles();
   return(
     <React.Fragment>
+      <CssBaseline />
       <div className={classes.root}>
-        <CssBaseline />
+        
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/about' component={About} />
-          <Route exact path='/blogs' component={Post} />
-          <Route exact path='/projects' component={Project} />
+          <Route exact path='/blogs' component={BlogPage} />
+          <Route exact path='/projects' component={ProjectPage} />
+          <Route exact path='/contact' component={Contact} />
         </Switch>
       </div>
     </React.Fragment>
