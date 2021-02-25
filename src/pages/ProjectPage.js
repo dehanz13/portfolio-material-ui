@@ -108,12 +108,20 @@ const useStyles = makeStyles((theme) => ({
 	button: {
 		margin: theme.spacing(1),
 	},
+	projectTitle: {
+		paddingBottom: theme.spacing(3)
+	},
 }));
 
 const ProjectPage = () => {
 	const classes = useStyles();
 	return(
 		<Box component='div' className={classes.mainContainer}>
+			<Typography variant='h2' className={classes.projectTitle}>
+				<Box fontWeight='fontWeightBold' m={2} textAlign='center' fontFamily='Nunito' color='white'>
+					Projects
+				</Box>
+			</Typography>
 			<Grid container justify='center'>
 				{projects.map((project, i) => (
 					<Grid item xs={12} sm={8} md={4} key={i}>
@@ -150,7 +158,7 @@ const ProjectPage = () => {
 									Share
 								</Button>
 								<Button variant='contained' size='small' color='primary' className={classes.button}>
-									Source
+									Read 
 								</Button>
 							</CardActions>
 						</Card>
