@@ -129,7 +129,7 @@ const BlogPage = () => {
 								</CardContent>
 							</CardActionArea>
 							<CardActions>
-							<Button variant='contained' size='small' color='secondary' className={classes.button}>
+							<Button variant='contained' size='small' color='inherit' className={classes.button}>
 									Read more...
 								</Button>
 							</CardActions>

@@ -62,10 +62,10 @@ export default function ImageCard({ blogPost, checked }) {
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-					<Button variant="contained" color="secondary" className={classes.button} >
+					<Button variant="contained" color="inherit" className={classes.button} >
 						Share
 					</Button>
-					<Button variant="contained"  color="secondary" className={classes.button}>
+					<Button variant="contained"  color="inherit" className={classes.button}>
 						Read More ...
 					</Button>
 				</CardActions>

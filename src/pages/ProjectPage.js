@@ -154,11 +154,11 @@ const ProjectPage = () => {
 								</CardContent>
 							</CardActionArea>
 							<CardActions>
-								<Button variant='contained' size='small' color='primary' className={classes.button}>
+								<Button variant='contained' size='small' color='inherit' className={classes.button}>
 									Share
 								</Button>
-								<Button variant='contained' size='small' color='primary' className={classes.button}>
-									Read 
+								<Button variant='contained' size='small' color='inherit' className={classes.button}>
+									Read more...
 								</Button>
 							</CardActions>
 						</Card>

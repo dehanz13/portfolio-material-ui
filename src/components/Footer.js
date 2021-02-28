@@ -14,13 +14,13 @@ import {
 
 const useStyles = makeStyles({
 	bottomNavContainer: {
-    background: "#222",
+    background: "#17252A",
   },
   root: {
     "& .MuiSvgIcon-root": {
-      fill: "tan",
+      fill: "#DEF2F1",
       "&:hover": {
-        fill: "tomato",
+        fill: "#3AAFA9",
         fontSize: "1.8rem",
       },
     },

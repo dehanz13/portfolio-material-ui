@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 	sideDrawerFlex: {
 		display: 'grid',
 		justifyContent: 'space-between',
+		backgroundColor: '#2B7A78',
 	},
 	menuSliderContainer: {
     width: 250,

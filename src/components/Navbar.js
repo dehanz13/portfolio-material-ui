@@ -68,7 +68,8 @@ const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
 		width: theme.spacing(40),
 		height: theme.spacing(138),
-    background: "#511",
+		background: "#2B7A78",
+		// backgroundColor: '#2B7A78',
     
   },
   avatar: {
@@ -78,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(13),
   },
   listItem: {
-    color: "tan",
+    color: "#DEF2F1",
 	},
 	list:{
 		width: 250

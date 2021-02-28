@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
 	contactContainer: {
 		// background: "#233",
 		// backgroundColor: "#6772e5",
-		boxShadow: '0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)',
-		height: "100vh",
+		// boxShadow: '0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.1)',
+		// height: "100vh",
   },
   heading: {
 		color: "#FEFFFF",
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
 		// background: "#233",
-		boxShadow: '0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)',
+		boxShadow: '10px 10px 30px rgba(50, 50, 93, 0.90), 0 1px 3px rgba(0, 0, 0, 0.1)',
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
