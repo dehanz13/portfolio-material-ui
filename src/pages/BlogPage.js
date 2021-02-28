@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { 
 	Box,
@@ -12,8 +12,6 @@ import {
 	Container,
 	Typography,
 } from '@material-ui/core'
-
-import Post from '../components/Post';
 
 const blogPosts = [
 	{

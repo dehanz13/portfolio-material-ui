@@ -13,12 +13,10 @@ import {
 	ListItemText,
 	Avatar,
 	Divider,
-	Typography,
 	makeStyles,
 	Hidden,
 } from '@material-ui/core';
 import { 
-	ArrowBack,
 	AssignmentInd,
 	Home,
 	Apps,
@@ -28,9 +26,7 @@ import {
 
 import avatar from '../images/avatar.png';
 import Footer from './Footer';
-import SideDrawer from './SideDrawer';
 import HideOnScroll from './HideOnScroll';
-import BackToTop from './BackToTop';
 
 const useStyles = makeStyles((theme) => ({
 	appbar: {
@@ -107,7 +103,7 @@ const Navbar = () => {
 	const classes = useStyles();
 	useEffect(() => {
 		setOpen(true)
-	})
+	}, [open]);
 
 	const toggleDrawer = (anchor, open) => event => {
 		if (

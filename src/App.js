@@ -1,13 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
-import { Link, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import Home from './components';
-import Header from './components/Header';
 import About from './components/About';
-import Post from './components/Post';
-import Project from './components/Project';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import BlogPage from './pages/BlogPage';

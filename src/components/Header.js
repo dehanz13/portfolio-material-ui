@@ -1,18 +1,8 @@
 import { 
-	AppBar, 
 	IconButton, 
 	Toolbar, 
-	Icon, 
 	Collapse, 
 	Typography, 
-	Link,
-	Button,
-	List,
-	ListItem,
-	ListItemText, 
-	Container, 
-	Menu, 
-	Hidden, 
 	Fab,
 	Box,
 	Grid,
@@ -121,7 +111,7 @@ const Header = () => {
 	const [ checked, setChecked ] = useState(false);
 	useEffect(() => {
 		setChecked(true)
-	})
+	}, []);
 	return(
 		<div className={classes.root} id='header'>
 			<Toolbar id="back-to-top-anchor" />

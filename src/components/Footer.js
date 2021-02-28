@@ -7,8 +7,7 @@ import {
 import { 
 	Facebook, 
 	Twitter, 
-	Instagram, 
-	LinkedIn, 
+	Instagram,
 	GitHub 
 } from '@material-ui/icons';
 
