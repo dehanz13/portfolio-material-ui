@@ -39,14 +39,16 @@ const useStyles = makeStyles((theme) => ({
 		maxWidth: '50vw',
   },
 	heading: {
-		color: 'tomato',
+		color: '#FEFFFF',
 		padding: '3rem 0',
     textTransform: 'uppercase',
     fontFamily: 'Nunito',
+    fontWeight: 700,
 	},
 	subtitle1: {
-    color: 'tan',
+    color: '#2B7A78',
     fontFamily: 'Nunito',
+    fontWeight: 500,
 	},
 	subHeading: {
     color: "#fff",

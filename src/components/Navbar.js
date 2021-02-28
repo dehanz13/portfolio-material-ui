@@ -43,13 +43,17 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: '1',
 		// display: 'flex',
 		textDecoration: 'none',
+		color:'#FEFFF',
 	},
 	appbarWrapper: {
 		width: '80%',
 		margin: '0 auto',
 	},
 	colorText: {
-		color: '#5ADD3D',
+		// color: '#5ADD3D',
+		color:'#FEFFFF',
+		fontFamily: 'Nunito',
+		variant:'body2',
 	},
 	navDisplayFlex: {
 		display: "flex",
@@ -157,8 +161,11 @@ const Navbar = () => {
 						<Toolbar className={classes.appbarWrapper}>
 							<Container className={classes.navDisplayFlex}>
 								<Link className={classes.appbarTitle} to="/" >
-									<h1>
+									{/* <h1>
 										Danniel<span className={classes.colorText}> Hansel</span>
+									</h1> */}
+									<h1 className={classes.colorText}>
+										Danniel Hansel
 									</h1>
 								</Link>
 								<Hidden smDown>

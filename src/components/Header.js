@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	goDown: {
 		// color: '#5AFF3D',
-		color: 'tomato',
+		color: '#2B7A78',
 		fontSize: '4.5rem',
 	},
 	avatar: {
@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
 		margin: theme.spacing(1),
 	},
 	headerTitle: {
-    color: "tomato",
+    color: "#2B7A78",
   },
   subtitle: {
     color: "tan",
@@ -126,7 +126,7 @@ const Header = () => {
 		<div className={classes.root} id='header'>
 			<Toolbar id="back-to-top-anchor" />
 			<BackToTop>
-				<Fab color="secondary" size="large" aria-label="scroll back to top" >
+				<Fab color="#2B7A78" size="large" aria-label="scroll back to top" >
 					<KeyboardArrowUp />
 				</Fab>
 			</BackToTop>			

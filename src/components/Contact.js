@@ -17,11 +17,12 @@ const useStyles = makeStyles((theme) => ({
 		height: "100vh",
   },
   heading: {
-		color: "tomato",
+		color: "#FEFFFF",
 		fontFamily: 'Nunito',
     textAlign: "center",
     textTransform: "uppercase",
-    marginBottom: "1rem",
+		marginBottom: "1rem",
+		fontWeight: 700,
   },
   form: {
 		// background: "#233",
@@ -37,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginTop: "1rem",
-    color: "tomato",
-		borderColor: "tan",
+    color: "#feffff",
+		borderColor: "#DEF2F1",
 		fontFamily: 'Nunito',
 		fontSize: 25,
   },
@@ -50,21 +51,21 @@ const useStyles = makeStyles((theme) => ({
 const InputField = withStyles({
 	root: {
 		'& label.Mui-focused':{
-			color: 'tomato',
+			color: '#2B7A78',
 		},
 		'& label': {
-			color: 'tan',
+			color: '#2B7A78',
 		},
 		'& .MuiOutlinedInput-root': {
 			'& fieldset':{
-				borderColor: 'tan',
+				borderColor: '#2B7A78',
 			},
 			'&:hover fieldset': {
-				borderColor: 'tan',
+				borderColor: '#2B7A78',
 			},
 			'&.Mui-focused fieldset': {
 				color: '#fff',
-				borderColor: 'tan',
+				borderColor: '#2B7A78',
 			},
 		},
 	},
